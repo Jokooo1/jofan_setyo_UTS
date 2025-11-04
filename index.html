@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Football Hub | Data Klub dan Berita Transfer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="header-title-container">
+            <img src="png/logofpottball.png" alt="Football Hub" class="main-header-logo" onerror="this.onerror=null;this.src='png/placeholder.jpg';">
+            <h1>FOOTBALL HUB</h1>
+        </div>
+        <p>20 Klub Eropa Teratas Musim 2024/2025</p>
+    </header>
+
+    <nav>
+        <div class="menu-item active" data-content="berita">Berita Transfer</div>
+        <div class="menu-item" data-content="daftar-klub">Daftar Klub</div>
+        <div class="menu-item" data-content="cari-klub-pemain">Cari Klub/Pemain</div>
+        <div class="menu-item" data-content="filter-data">Filter Data Pemain</div>
+    </nav>
+
+    <div id="content-container">
+
+        <div id="berita-content" class="content-tab active-content">
+            <h2>📰 Berita Utama Football Hub</h2>
+            <div id="newsList" class="news-list">
+                <p>Memuat berita...</p>
+            </div>
+        </div>
+
+        <div id="daftar-klub-content" class="content-tab">
+            <h2>🏆 Daftar Klub Eropa Pilihan</h2>
+            <p>Klik nama klub atau tombol "Lihat Skuad" untuk melihat detail pemain.</p>
+            <div class="table-responsive">
+                <table class="club-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Klub</th>
+                            <th>Negara</th>
+                            <th>Pelatih</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody id="clubTableBody">
+                        <tr><td colspan="5">Memuat data klub...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div id="cari-klub-pemain-content" class="content-tab">
+            <h2>🔍 Cari Klub atau Pemain</h2>
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Masukkan nama klub (ex: Madrid) atau pemain (ex: Haaland)">
+                <button onclick="performSearch()">Cari</button>
+            </div>
+            <div id="searchResults">
+                <p>Silakan masukkan nama klub atau pemain untuk mencari.</p>
+            </div>
+        </div>
+
+        <div id="filter-data-content" class="content-tab">
+            <h2>⚙️ Filter Data Pemain Berdasarkan Kriteria</h2>
+            <div class="filter-container">
+                <select id="filterNegara" onchange="terapkanFilter()">
+                    <option value="">Filter Berdasarkan Negara</option>
+                </select>
+                <select id="filterPosisi" onchange="terapkanFilter()">
+                    <option value="">Filter Berdasarkan Posisi</option>
+                </select>
+                <button onclick="terapkanFilter()">Terapkan Filter</button>
+            </div>
+            <div id="filterResults">
+                <p>Silakan pilih kriteria filter dan tekan "Terapkan Filter".</p>
+            </div>
+        </div>
+        
+    </div> 
+
+    <div id="clubModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal('clubModal')">&times;</span>
+            <div id="modal-content-detail"></div>
+        </div>
+    </div>
+
+    <div id="newsModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal('newsModal')">&times;</span>
+            <div id="news-modal-content"></div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h4>Sosial Media</h4>
+                <a href="#">Facebook</a>
+                <a href="#">Twitter</a>
+                <a href="#">Instagram</a>
+            </div>
+
+            <div class="footer-column">
+                <h4>Halaman Utama</h4>
+                <a onclick="navigate('berita')">Berita Transfer</a>
+                <a onclick="navigate('daftar-klub')">Daftar Klub</a>
+                <a onclick="navigate('cari-klub-pemain')">Cari Data</a>
+                <a onclick="navigate('filter-data')">Filter Data</a>
+            </div>
+
+            <div class="footer-column">
+                <h4>Informasi</h4>
+                <a href="#">Tentang Kami</a>
+                <a href="#">Kebijakan Privasi</a>
+                <a href="#">Syarat dan Ketentuan</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 Football Hub. Data Skuad Musim 2024/2025.
+        </div>
+    </footer>
+
+    <script src="data.js"></script>
+    <script src="ui.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
